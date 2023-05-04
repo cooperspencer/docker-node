@@ -22,6 +22,6 @@ jobs:
         password: ${{ secrets.DOCKER_PWD }}
     - name: Build image and push to Docker Hub
       run: |
-        docker buildx build -q --push . -t buddyspencer/ubuntu-node:latest
+        docker buildx build --arch  --platform linux/amd64,linux/arm64 -q --push . -t buddyspencer/ubuntu-node:latest
       volumes:
       - /var/run/docker.sock:/var/run/docker.sock
